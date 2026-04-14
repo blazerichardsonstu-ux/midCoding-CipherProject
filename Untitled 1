@@ -1,0 +1,120 @@
+abc pefcq_ibqqbo(ibqqbo, pefcq):
+    fc klq ibqqbo.fpximex():
+        obqrok ibqqbo
+    
+    fc ibqqbo.fprmmbo():
+        pqxoq = loa('X')
+    bipb:
+        pqxoq = loa('x')
+
+    ibqqbo_mlpfqflk = loa(ibqqbo) - pqxoq
+    kbt_mlpfqflk = (ibqqbo_mlpfqflk + pefcq) % 26
+
+    obqrok zeo(pqxoq + kbt_mlpfqflk)
+
+
+abc bkzlab_jbppxdb(jbppxdb, pefcq):
+    bkzlaba_jbppxdb = ""
+
+    clo ibqqbo fk jbppxdb:
+        bkzlaba_jbppxdb += pefcq_ibqqbo(ibqqbo, pefcq)
+
+    obqrok bkzlaba_jbppxdb
+abc abzlab_jbppxdb(jbppxdb, pefcq):
+    obqrok bkzlab_jbppxdb(jbppxdb, -pefcq)
+
+
+abc xph_clo_pefcq():
+    qov:
+        obqrok fkq(fkmrq("Bkqbo qeb pefcq xjlrkq: "))
+    buzbmq SxirbBoolo:
+        mofkq("Mibxpb bkqbo x telib krjybo clo qeb pefcq.")
+        obqrok Klkb
+
+
+abc bkzlab_cfib(fkmrq_cfib, lrqmrq_cfib, pefcq):
+    qov:
+        tfqe lmbk(fkmrq_cfib, 'o') xp fkmrq_exkaib:
+            lofdfkxi_qbuq = fkmrq_exkaib.obxa()
+        bkzlaba_qbuq = bkzlab_jbppxdb(lofdfkxi_qbuq, pefcq)
+        tfqe lmbk(lrqmrq_cfib, 't') xp lrqmrq_exkaib:
+            lrqmrq_exkaib.tofqb(bkzlaba_qbuq)
+
+        mofkq(c"Cfib '{fkmrq_cfib}' txp bkzlaba xka pxsba xp '{lrqmrq_cfib}'.")
+    buzbmq CfibKlqClrkaBoolo:
+        mofkq(c"Cfib '{fkmrq_cfib}' txp klq clrka.")
+    buzbmq FLBoolo xp boolo:
+        mofkq(c"Qebob txp x molyibj tefib tlohfkd tfqe qeb cfib: {boolo}")
+
+
+abc abzlab_cfib(fkmrq_cfib, lrqmrq_cfib, pefcq):
+    qov:
+        tfqe lmbk(fkmrq_cfib, 'o') xp fkmrq_exkaib:
+            bkzlaba_qbuq = fkmrq_exkaib.obxa()
+        abzlaba_qbuq = abzlab_jbppxdb(bkzlaba_qbuq, pefcq)
+        tfqe lmbk(lrqmrq_cfib, 't') xp lrqmrq_exkaib:
+            lrqmrq_exkaib.tofqb(abzlaba_qbuq)
+
+        mofkq(c"Cfib '{fkmrq_cfib}' txp abzlaba xka pxsba xp '{lrqmrq_cfib}'.")
+    buzbmq CfibKlqClrkaBoolo:
+        mofkq(c"Cfib '{fkmrq_cfib}' txp klq clrka.")
+    buzbmq FLBoolo xp boolo:
+        mofkq(c"Qebob txp x molyibj tlohfkd tfqe qeb cfib: {boolo}")
+
+
+abc exkaib_jbppxdb_zelfzb(zelfzb):
+    fc zelfzb == 'abzlab':
+        jbppxdb = fkmrq("Bkqbo x jbppxdb ql abzlab: ")
+    bipb:
+        jbppxdb = fkmrq("Bkqbo x jbppxdb ql bkzlab: ")
+
+    pefcq = xph_clo_pefcq()
+    fc pefcq fp Klkb:
+        obqrok
+
+    mofkq(c"Lofdfkxi: {jbppxdb}")
+
+    fc zelfzb == 'abzlab':
+        mofkq(c"Abzlaba: {abzlab_jbppxdb(jbppxdb, pefcq)}")
+    bipb:
+        mofkq(c"Bkzlaba: {bkzlab_jbppxdb(jbppxdb, pefcq)}")
+
+
+abc exkaib_cfib_zelfzb(xzqflk):
+    fkmrq_cfib = fkmrq("Bkqbo qeb fkmrq cfib kxjb: ").pqofm()
+    lrqmrq_cfib = fkmrq("Bkqbo qeb lrqmrq cfib kxjb: ").pqofm()
+    pefcq = xph_clo_pefcq()
+
+    fc pefcq fp Klkb:
+        obqrok
+
+    fc xzqflk == 'bkzlab':
+        bkzlab_cfib(fkmrq_cfib, lrqmrq_cfib, pefcq)
+    bipb:
+        abzlab_cfib(fkmrq_cfib, lrqmrq_cfib, pefcq)
+
+
+abc jxfk():
+    mofkq("Texq tlria vlr ifhb ql al?")
+    mofkq("  1. bkzlab x jbppxdb")
+    mofkq("  2. abzlab x jbppxdb")
+    mofkq("  3. bkzlab x cfib")
+    mofkq("  4. abzlab x cfib")
+
+    zelfzb = fkmrq("Bkqbo 1, 2, 3, lo 4: ").pqofm()
+
+    fc zelfzb == '1':
+        exkaib_jbppxdb_zelfzb('bkzlab')
+    bifc zelfzb == '2':
+        exkaib_jbppxdb_zelfzb('abzlab')
+    bifc zelfzb == '3':
+        exkaib_cfib_zelfzb('bkzlab')
+    bifc zelfzb == '4':
+        exkaib_cfib_zelfzb('abzlab')
+    bipb:
+        mofkq("Mibxpb bkqbo 1, 2, 3, lo 4.")
+
+
+fc __kxjb__ == "__jxfk__":
+    jxfk() 
+    #yriiald
